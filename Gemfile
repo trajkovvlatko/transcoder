@@ -42,6 +42,5 @@ gem 'resque'
 gem 'carrierwave'
 gem 'foreman'
 gem "haml-rails"
-gem "pg"
 gem 'quiet_assets'
 gem 'kaminari'

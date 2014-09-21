@@ -75,7 +75,6 @@ GEM
     minitest (5.4.1)
     mono_logger (1.1.0)
     multi_json (1.10.1)
-    pg (0.17.1)
     polyglot (0.3.5)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
@@ -162,7 +161,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  pg
   quiet_assets
   rails (= 4.1.5)
   resque
