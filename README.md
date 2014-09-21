@@ -7,9 +7,11 @@ It uses ffmpeg and Resque background jobs for the transcoding process.
 
 Using:
 
+install redis
+
 $ bundle install
 
-edit database.yml with proper db credentials
+edit database.yml with proper db credentials (using postgres atm)
 
 $ rake db:create
 
