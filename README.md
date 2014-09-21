@@ -11,15 +11,11 @@ install redis
 
 $ bundle install
 
-edit database.yml with proper db credentials (using postgres atm)
-
-$ rake db:create
-
-$ rake db:migrate
+$ rake db:migrate (uses sqlite)
 
 $ foreman start
 
-visit http://localhost:3000 for the web application
+visit <a href="http://localhost:3000">http://localhost:3000</a> for the web application
 
-or    http://localhost:3000/resque for Resque panel
+or    <a href="http://localhost:3000/resque">http://localhost:3000/resque</a> for Resque panel and background jobs management
 
