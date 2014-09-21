@@ -1,4 +1,4 @@
-transcoder
+Ruby on Rails transcoder
 ==========
 
 Ruby on Rails application, video uploader and transcoder. 
