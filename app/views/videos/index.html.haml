@@ -1,0 +1,20 @@
+%table{ border: 1 }
+  %tr
+    %td ID
+    %td Title
+    %td Path
+    %td State
+    %td Created at
+    %td Updated at
+  - @videos.each do |video|
+    %tr
+      %td= video.id
+      %td= link_to video.title, video_path(video)
+      %td= video.video_file
+      %td= video.state
+      %td= video.created_at
+      %td= video.updated_at
+
+= paginate @videos
+
+= link_to "New", new_video_path
