@@ -2,6 +2,7 @@ transcoder
 ==========
 
 Ruby on Rails application, video uploader and transcoder. 
+
 It uses ffmpeg and Resque background jobs for the transcoding process.
 
 Using:
