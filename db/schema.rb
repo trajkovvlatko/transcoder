@@ -13,10 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140920162120) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
-
   create_table "videos", force: true do |t|
     t.string   "title"
     t.string   "video_file"
