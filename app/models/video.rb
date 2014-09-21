@@ -24,7 +24,7 @@ class Video < ActiveRecord::Base
   end
 
   def set_title
-    self.title = self.without_extension if self.new_record?
+    self.title = self.without_extension if self.new_record? && self.title.empty?
   end
 
   def input_path
@@ -51,9 +51,9 @@ class Video < ActiveRecord::Base
     self.thumbs_output = Rails.root.to_s + "/public/uploads/video/video_file/#{self.id}/#{output}"
   end
 
-  def self.publish(id)
+  def self.set_state(id, state)
     video = Video.find(id)
-    video.update_attributes({ state: "complete" })
+    video.update_attributes({ state: state })
   end
 
 end

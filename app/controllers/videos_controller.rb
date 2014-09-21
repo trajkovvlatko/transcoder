@@ -22,7 +22,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :video_file, :state)
+    params.require(:video).permit(:title, :video_file, :state, :audio_bitrate, :audio_sample_rate, :video_bitrate, :single_thread)
   end
 
 end

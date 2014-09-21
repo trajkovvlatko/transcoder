@@ -21,9 +21,13 @@ ActiveRecord::Schema.define(version: 20140920162120) do
     t.string   "low_output"
     t.string   "ts_output"
     t.string   "thumbs_output"
-    t.integer  "duration",      limit: 8
-    t.integer  "size",          limit: 8
-    t.string   "state",                   default: "queued"
+    t.string   "audio_bitrate"
+    t.string   "audio_sample_rate"
+    t.string   "video_bitrate"
+    t.boolean  "single_thread",               default: true
+    t.integer  "duration",          limit: 8
+    t.integer  "size",              limit: 8
+    t.string   "state",                       default: "queued"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,6 +1,25 @@
 = form_for @video do |f|
-  = f.text_field :title
-  = f.file_field :video_file
-  = f.submit "Upload"
+  %table
+    %tr
+      %td Title
+      %td= f.text_field :title
+    %tr
+      %td Audio bitrate
+      %td= f.text_field :audio_bitrate, value: "192k"
+    %tr
+      %td Audio sample rate
+      %td= f.text_field :audio_sample_rate, value: "44100"
+    %tr
+      %td Video bitrate
+      %td= f.text_field :video_bitrate, value: "2500k"
+    %tr
+      %td Single thread?
+      %td= f.check_box :single_thread
+    %tr
+      %td Upload file
+      %td= f.file_field :video_file
+    %tr
+      %td
+      %td= f.submit "Upload"
 
 = link_to "Index", videos_path
