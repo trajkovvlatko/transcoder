@@ -12,9 +12,14 @@ class Transcoder
     @command.push input
     @outputs.each do |output|
       @output = output
-      @command.push "#{overwrite} #{single_thread} #{flags} #{audio_codec} #{strict} #{audio_bitrate} #{audio_sample_rate} #{video_codec} #{video_bitrate} #{scale} #{output_path}"
+      if @output[:url].include?("thumb")
+        @command.push "#{overwrite} #{single_thread} #{thumbs_settings} #{output_path}"
+      else
+        @command.push "#{overwrite} #{single_thread} #{flags} #{audio_codec} #{strict} #{audio_bitrate} #{audio_sample_rate} #{video_codec} #{video_bitrate} #{scale} #{output_path}"
+      end
     end
     @command.push "2>&1"
+    puts @command
     @command.join " "
   end
 
@@ -24,6 +29,14 @@ class Transcoder
 
   def metadata
     @metadata
+  end
+
+  def video_frame_rate
+    frame_rate = 25
+    streams.each do |stream|
+      frame_rate = eval(stream["avg_frame_rate"]) if stream["codec_type"] == "video"
+    end
+    frame_rate.to_i
   end
 
   def streams
@@ -105,6 +118,11 @@ class Transcoder
 
   def output_path
     @output[:url]
+  end
+
+  def thumbs_settings
+    coeff = (duration.to_i * video_frame_rate / @output[:quantity]).floor
+    "-vsync 0 -vframes 5 -vf \"scale=1280:720,pad=1280:720:0:0,select='not(mod(n,#{coeff}))'\""
   end
 
 end
