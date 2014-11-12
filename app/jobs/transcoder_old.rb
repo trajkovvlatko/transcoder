@@ -1,4 +1,4 @@
-class Transcoder
+class TranscoderOld
 
   @queue = "transcode_queue"
 

@@ -7,12 +7,12 @@ class Video < ActiveRecord::Base
   paginates_per 10
 
   def generate_paths
-    self.input_path
-    self.hi_output_path
-    self.low_output_path
-    self.ts_path
-    self.thumbs_path
-    self.save!
+    input_path
+    hi_output_path
+    low_output_path
+    ts_path
+    thumbs_path
+    save!
   end
 
   def without_extension

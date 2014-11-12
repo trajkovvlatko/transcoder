@@ -1,7 +1,20 @@
 class VideosController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token, :only => [:transcode]
+
   def new
     @video = Video.new
+  end
+
+  def transcode
+    input = params[:input]
+    outputs = params[:outputs]
+    config = params[:config]
+    Path.create_paths(outputs)
+    job = Transcoder.new(input, outputs)
+    job.probe
+    job.run
+    raise job.command.to_yaml
   end
 
   def create
