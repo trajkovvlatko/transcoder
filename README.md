@@ -1,4 +1,4 @@
-Ruby on Rails transcoder
+Ruby on Rails video transcoder
 ==========
 
 Ruby on Rails application, video uploader and transcoder. 
@@ -7,7 +7,9 @@ It uses ffmpeg and Resque background jobs for the transcoding process.
 
 Using:
 
-install redis
+Install redis
+
+Build ffmpeg from source <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu</a>
 
 $ bundle install
 
