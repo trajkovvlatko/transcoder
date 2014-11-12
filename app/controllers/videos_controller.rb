@@ -11,10 +11,10 @@ class VideosController < ApplicationController
     outputs = params[:outputs]
     config = params[:config]
     Path.create_paths(outputs)
-    job = Transcoder.new(input, outputs)
-    job.probe
-    job.run
-    raise job.command.to_yaml
+    video = Ffmpeg.new(input, outputs)
+    video.probe
+    Resque.enqueue(Transcoder, video.command, video.duration)
+    render nothing: true
   end
 
   def create
