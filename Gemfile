@@ -43,4 +43,4 @@ gem 'carrierwave'
 gem 'foreman'
 gem "haml-rails"
 gem 'quiet_assets'
-gem 'kaminari'
+gem 'redis'

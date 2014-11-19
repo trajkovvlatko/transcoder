@@ -1,9 +1,16 @@
 class Ffmpeg
 
+  require 'securerandom'
+
   def initialize(input, outputs)
+    @id = SecureRandom.hex
     @input = input
     @outputs = outputs
     @metadata = {}
+  end
+
+  def id
+    @id
   end
 
   def command

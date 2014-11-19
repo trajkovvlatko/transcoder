@@ -9,7 +9,7 @@ class VideosController < ApplicationController
     Path.create_paths(outputs)
     video = Ffmpeg.new(input, outputs)
     video.probe
-    Resque.enqueue(Transcoder, video.command, video.duration)
+    Resque.enqueue(Transcoder, video.id, video.command, video.duration)
     render nothing: true
   end
 
